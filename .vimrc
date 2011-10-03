@@ -160,6 +160,8 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 " }}}
 
+imap jj 
+map ; :
 set textwidth=78
 set sw=2
 set ts=2
