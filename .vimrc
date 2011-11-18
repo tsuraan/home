@@ -170,4 +170,7 @@ set expandtab
 colorscheme elflord
 set wrapmargin=1
 au BufNewFile,BufRead *.frag,*.vert,*.geom set syntax=glsl
+
+call pathogen#infect()
+
 " vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
