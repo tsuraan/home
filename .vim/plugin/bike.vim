@@ -250,7 +250,7 @@ function! s:BikeFindDef()
 fn = vim.current.buffer.name
 row, col = vim.current.window.cursor
 try:
-    defs = bikectx.findDefinitionByCoordinates(fn, row, col)
+    defs = bikectx.findDefinition(fn, row, col)
     quickfixdefs(defs)
 except:
     show_exc()
@@ -271,7 +271,7 @@ newname = vim.eval("newname")
 if newname:
     try:
         bikectx.setRenameMethodPromptCallback(renameMethodPromptCallback)
-        bikectx.renameByCoordinates(fn, row, col, newname)
+        bikectx.rename(fn, row, col, newname)
     except:
         show_exc()
     saveChanges()
