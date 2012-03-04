@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+def usage
+	puts "Usage: delline <line-number>"
+	puts "  delete line number line-number from ~/.ssh/known_hosts"
+	exit
+end
+
+usage if ARGV.size != 1
+delline = ARGV[0].to_i-1
+
+hosts = ENV["HOME"] + "/.ssh/known_hosts"
+lines = []
+File.open(hosts).each_with_index { |line,index|
+	lines << line if index != delline
+}
+
+File.open(hosts, "w") { |f|
+	lines.each { |line|
+		f << line
+	}
+}
+
